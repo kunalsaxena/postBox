@@ -1,8 +1,16 @@
 # postBox
-Post Box Email Client
+Java based Email Client
 
-Contributers are :-
+**Contributers** :-
 Kunal Saxena,
-Syambrij,
+Syambrij Maurya,
 Ankit Ramola,
-Akash Yadav
+
+Goals are :-
+
+- save emails and decide format
+- file handling
+- index emails
+- read emails from file
+- load indexes to redis
+- improve ui
