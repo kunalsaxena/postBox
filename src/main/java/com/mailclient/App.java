@@ -9,16 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * @author kunal
- *         App class for postBox App
- */
+/** @author kunal App class for postBox App */
 public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        if(null == PBUtils.readConfigObject()) {
+        if (null == PBUtils.readConfigObject()) {
             Stage login = FXMLLoader.load(getClass().getResource("/login.fxml"));
             login.setTitle("postbox login");
             login.centerOnScreen();
@@ -31,13 +28,13 @@ public class App extends Application {
             primaryStage.show();
         }
 
-        /*Stage init = FXMLLoader.load(getClass().getResource("/init.fxml"));
-        init.setTitle("postbox email client");
-        init.centerOnScreen();
-        init.show();
-        init.setAlwaysOnTop(true);*/
+        /*
+         * Stage init = FXMLLoader.load(getClass().getResource("/init.fxml"));
+         * init.setTitle("postbox email client"); init.centerOnScreen(); init.show();
+         * init.setAlwaysOnTop(true);
+         */
 
-//        init.close();
+        // init.close();
     }
 
     public static void main(String[] args) {
