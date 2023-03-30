@@ -36,7 +36,7 @@ public class CheckSpam {
 
       Session emailSession = Session.getInstance(properties, null);
       Store store = emailSession.getStore("imaps");
-      store.connect("kunal.saxena.kunal@gmail.com", "Kunal22@");
+      store.connect("kunal.saxena@gmail.com", "password");
 
       // create the folder object and open it
       Folder folder = store.getFolder("[Gmail]/Spam");

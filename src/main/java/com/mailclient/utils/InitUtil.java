@@ -1,10 +1,6 @@
 package com.mailclient.utils;
 
-import com.google.gson.JsonObject;
-import com.mailclient.dto.ConfigDTO;
-
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 /** Created by kunal on 21/2/17. */
@@ -28,18 +24,18 @@ public class InitUtil {
       }
     }
 
-    // Create inbox file
-    File propFile = new File(folder, "../mailProperties");
+    // // Create inbox file
+    // File propFile = new File(folder, "../mailProperties");
 
-    try {
-      if (!propFile.exists()) {
-        propFile.createNewFile();
-        PBUtils.initConfig();
-      }
+    // try {
+    //   if (!propFile.exists()) {
+    //     propFile.createNewFile();
+    //     PBUtils.initConfig();
+    //   }
 
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    // } catch (IOException e) {
+    //   e.printStackTrace();
+    // }
 
     // Call MailCheck
     // CheckMail.check();
