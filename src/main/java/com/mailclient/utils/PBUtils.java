@@ -2,15 +2,14 @@ package com.mailclient.utils;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.mailclient.dto.ConfigDTO;
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /** Created by kunal on 1/2/17. */
 public class PBUtils {
@@ -26,13 +25,16 @@ public class PBUtils {
   }
 
   public static ConfigDTO readConfigObject() throws IOException {
+    ObjectMapper mapper = new ObjectMapper();
     try {
-
-      ObjectMapper mapper = new ObjectMapper();
-      ConfigDTO configDTO =
-          mapper.readValue(
-              new File(PBConstants.USER_HOME + "/postbox/mailProperties"), ConfigDTO.class);
-      return configDTO;
+      Path path = Paths.get(PBConstants.USER_HOME + "/postbox/mailProperties");
+      if(Files.exists(path) && Files.isRegularFile(path)) {
+        ConfigDTO configDTO =
+            mapper.readValue(path.toFile(), ConfigDTO.class);
+        return configDTO;
+      } else {
+        return null;
+      }
 
     } catch (FileNotFoundException e) {
       e.printStackTrace();

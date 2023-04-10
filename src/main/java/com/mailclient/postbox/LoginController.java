@@ -22,7 +22,7 @@ public class LoginController {
   private void handleLoginBtn(ActionEvent event) throws IOException {
 
     // Write username and password to config object
-    ConfigDTO configDTO = PBUtils.readConfigObject();
+    ConfigDTO configDTO = new ConfigDTO();
 
     // Generate token
     String token = JWTTokenUtil.createToken(username.getText(), password.getText());
